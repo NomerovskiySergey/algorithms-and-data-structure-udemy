@@ -46,9 +46,39 @@ namespace Algorithms.Tests
 
 
         [Test]
-        public void Test1()
+        public void BubbleSorting_ValidInput_SortedOutput_Test()
         {
             RunForSorting(Sorting.BubbleSort);
+        }
+
+        [Test]
+        public void SelectionSorting_ValidInput_SortedOutput_Test()
+        {
+            RunForSorting(Sorting.SelectionSort);
+        }
+
+        [Test]
+        public void InsertingSorting_ValidInput_SortedOutput_Test()
+        {
+            RunForSorting(Sorting.InsertionSort);
+        }
+
+        [Test]
+        public void ShellSorting_ValidInput_SortedOutput_Test()
+        {
+            RunForSorting(Sorting.ShellSort);
+        }
+
+        [Test]
+        public void MergeSorting_ValidInput_SortedOutput_Test()
+        {
+            RunForSorting(Sorting.MergeSort);
+        }
+
+        [Test]
+        public void QuickSorting_ValidInput_SortedOutput_Test()
+        {
+            RunForSorting(Sorting.QuickSort);
         }
     }
 }
