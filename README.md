@@ -6,3 +6,5 @@ Sorting
 - [Selection Sort Algorithm](https://www.geeksforgeeks.org/selection-sort/?ref=lbp)
 - [Insertion Sort](https://www.geeksforgeeks.org/insertion-sort/?ref=lbp)
 - [Shell Sort](https://www.geeksforgeeks.org/shellsort/?ref=gcse)
+- [Merge Sort](https://www.geeksforgeeks.org/merge-sort/?ref=gcse)
+- [Quick Sort](https://www.geeksforgeeks.org/quick-sort/?ref=gcse)
