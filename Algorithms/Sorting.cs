@@ -1,4 +1,6 @@
-﻿namespace Algorithms
+﻿using System;
+
+namespace Algorithms
 {
     public static class Sorting
     {
@@ -75,12 +77,107 @@
 
         public static void MergeSort(int[] input)
         {
+            int[] aux = new int [input.Length];
+            Sort(0, input.Length - 1);
 
+            void Sort(int low, int high)
+            {
+                if(high <= low)
+                {
+                    return;
+                }
+
+                int mid = (low + high) / 2;
+
+                Sort(low, mid);
+                Sort(mid + 1, high);
+
+                Merge(low, mid, high);
+
+            }
+
+            void Merge(int low, int mid, int high)
+            {
+                int i = low;
+                int j = mid + 1;
+
+                Array.Copy(input, low, aux, low, high - low + 1);
+
+                for(int k = low; k <= high; k++)
+                {
+                    if(i > mid)
+                    {
+                        input[k] = aux[j++];
+                    }
+                    else if(j > high)
+                    {
+                        input[k] = aux[i++];
+                    }
+                    else if (aux[j] < aux[i])
+                    {
+                        input[k] = aux[j++];
+                    }
+                    else
+                    {
+                        input[k] = aux[i++];
+                    }
+                }       
+            }
         }
 
         public static void QuickSort(int[] input)
         {
+            Sort(0, input.Length - 1);
 
+            void Sort(int low, int high)
+            {
+                if(high <= low)
+                {
+                    return;
+                }
+
+                int j = Partition(low, high);
+                Sort(low, j-1);
+                Sort(j + 1, high);
+            }
+
+            int Partition(int low, int high)
+            {
+                int i = low;
+                int j = high + 1;
+
+                int pivot = input[low];
+
+                while (true)
+                {
+                    while(input[++i] < pivot)
+                    {
+                        if(i == high)
+                        {
+                            break;
+                        }
+                    }
+
+                    while (input[--j] > pivot)
+                    {
+                        if (j == low)
+                        {
+                            break;
+                        }
+                    }
+
+                    if(i >= j)
+                    {
+                        break;
+                    }
+
+                    Swap(input, i, j);
+                }
+
+                Swap(input, low, j);
+
+                return j;
+            }
         }
 
         private static void Swap(int[] array, int i, int j)
